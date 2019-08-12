@@ -4,7 +4,7 @@ class InsertionSort {
     /**
      * This method implements the Insertion Sort algorithm as desribed in the
      * CLRS book. This sorts data elements in an ascending order. It should be
-     * noted that in CLRS, array starts from 1.
+     * noted that in pseudo code, array starts from 1.
      *
      * for j = 2 to A.length
      *   key = A[j]
