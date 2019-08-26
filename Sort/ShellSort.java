@@ -13,9 +13,9 @@ class ShellSort {
      *     key = A[j]
      *     i = j - h
      *     while i > 0 and A[i] > key
-     *       A[i+ 1] = A[i]
-     *       i = i - 1
-     *     A[i + 1] = key
+     *       A[i + h] = A[i]
+     *       i = i - h
+     *     A[i + h] = key
      *   h = next_item_in_sequence
      **/
 
