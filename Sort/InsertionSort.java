@@ -30,9 +30,10 @@ class InsertionSort {
     }
 
     public static void main(String[] args) {
-        int[] unsorted = {14, 23, 5, 67, 1, 54, 121, 8, 12};
+        int[] array = {14, 23, 5, 67, 1, 54, 121, 8};
+        System.out.println(Arrays.toString(array));
         InsertionSort sort = new InsertionSort();
-        int[] sorted = sort.sort(unsorted);
-        System.out.println(Arrays.toString(sorted));
+        sort.sort(array);
+        System.out.println(Arrays.toString(array));
     }
 }
