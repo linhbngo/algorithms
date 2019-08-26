@@ -11,7 +11,7 @@ class ShellSort {
      * while h >= 1
      *   for j = h to A.length
      *     key = A[j]
-     *     i = j - 1
+     *     i = j - h
      *     while i > 0 and A[i] > key
      *       A[i+ 1] = A[i]
      *       i = i - 1
@@ -24,12 +24,12 @@ class ShellSort {
          while (h >= 1) {
              for (int j = h; j < array.length; j++) {
                  int key = array[j];
-                 int i = j - 1;
+                 int i = j - h;
                  while (i >= 0 && array[i] > key) {
-                     array[i + 1] = array[i];
-                     i--;
+                     array[i + h] = array[i];
+                     i = i - h;
                  }
-                 array[i + 1] = key;
+                 array[i + h] = key;
              }
              h = seqLog2(h);
          }
