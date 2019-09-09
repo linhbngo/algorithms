@@ -19,7 +19,7 @@ class MergeSort {
 
     void mergeSort(int[] A, int p, int r) {
       if (p < r) {
-        int q = (int) Math.floor((p + r) / 2);
+        int q = (p + r) / 2;
         mergeSort(A, p, q);
         mergeSort(A, q + 1, r);
         merge(A, p, q, r);
@@ -50,28 +50,20 @@ class MergeSort {
     void merge(int[] A, int p, int q, int r) {
       int n1 = q - p + 1;
       int n2 = r - q;
-      int L[] = new int[n1];
-      int R[] = new int[n2];
-      int i, j, k;
-      for (i = 0; i < n1; i++) {
+      int[] L = new int[n1 + 1];
+      int[] R = new int[n2 + 1];
+      for (int i = 0; i < n1; i++) {
         L[i] = A[p + i];
       }
-
-      for (j = 0; j < n2; j++) {
-        R[j] = A[q + j];
+      for (int j = 0; j < n2; j++) {
+        R[j] = A[q + 1 + j];
       }
-      i = 0;
-      j = 0;
-      for (k = p; k < r; k++) {
-        if (i >= n1) {
-          A[k] = R[j];
-          j += 1;
-        }
-        else if (j >= n2) {
-          A[k] = L[i];
-          i += 1;
-        }
-        else if (L[i] <= R[j]) {
+      L[n1] = Integer.MAX_VALUE;
+      R[n2] = Integer.MAX_VALUE;
+      int i = 0;
+      int j = 0;
+      for (int k = p; k <= r; k++) {
+        if (L[i] <= R[j]) {
           A[k] = L[i];
           i += 1;
         } else {
@@ -86,7 +78,7 @@ class MergeSort {
         int[] array = {14, 23, 5, 67, 1, 54, 121, 8};
         System.out.println(Arrays.toString(array));
         MergeSort sort = new MergeSort();
-        sort.mergeSort(array, 0, array.length);
+        sort.mergeSort(array, 0, array.length - 1);
         System.out.println(Arrays.toString(array));
     }
 }
