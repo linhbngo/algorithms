@@ -1,11 +1,11 @@
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Queue;
 
-public class ArrayListQueue
+public class LinkedListQueue
 {
   public static void main(String[] args)
   {
-    Queue<Integer> q = new ArrayList<>();
+    Queue<Integer> q = new LinkedList<Integer>();
     for (int i=0; i<5; i++) {
       q.add(i);
     }
