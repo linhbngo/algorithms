@@ -21,12 +21,5 @@ public class LinkedListQueue
     int head = q.peek();
     System.out.println("head of queue: " + head);
     System.out.println("Remaining elements: " + q);
-
-    for (int i=0; i<4; i++) {
-      e = q.poll();
-      System.out.println("removed element: " + e);
-    }
-    e = q.poll();
-    System.out.println("removed element: " + e);
   }
 }
