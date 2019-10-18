@@ -9,6 +9,6 @@ class Node {
 
   Node (String x) {
     val = x;
-    next = null
+    next = null;
   }
 }
