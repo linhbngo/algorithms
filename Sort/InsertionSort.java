@@ -30,7 +30,7 @@ class InsertionSort {
     }
 
     public static void main(String[] args) {
-        int[] array = {14, 23, 5, 67, 1, 54, 121, 8};
+        int[] array = { 503, 87, 512, 61, 170 };
         System.out.println(Arrays.toString(array));
         InsertionSort sort = new InsertionSort();
         sort.sort(array);
