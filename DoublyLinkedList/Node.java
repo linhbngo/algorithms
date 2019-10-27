@@ -1,4 +1,4 @@
-class DLNode {
+class Node {
   String val;
   Node next;
   Node prev;
