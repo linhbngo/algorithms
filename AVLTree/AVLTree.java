@@ -1,4 +1,8 @@
 /* Modified based on https://www.geeksforgeeks.org/avl-tree-set-1-insertion/ */
+import java.util.Scanner;
+import java.io.File;
+import java.io.IOException;
+
 class Node {
 	int key, height;
 	Node left;
@@ -118,18 +122,26 @@ class AVLTree {
     print2DUtil(root.left, space, COUNT);
   }
 
-	public static void main(String[] args) {
+  public static void main(String[] args) {
 		AVLTree tree = new AVLTree();
+    try {
+      Scanner scanner = new Scanner(new File(args[0]));
+      int [] array = new int [scanner.nextInt()];
+      int i = 0;
+      while(scanner.hasNextInt()) {
+        array[i++] = scanner.nextInt();
+      }
 
-    int[] array = {40, 39, 50, 38, 49, 52};
-    for (int i = 0; i < array.length; i++) {
-      tree.root = tree.insert(tree.root, array[i]);
+      for (i = 0; i < array.length; i++) {
+        tree.root = tree.insert(tree.root, array[i]);
+      }
+      System.out.println("Current tree: ");
+      print2DUtil(tree.root, 0, array.length);
+		  System.out.println("After insert " + Integer.parseInt(args[1]) + " :");
+		  tree.root = tree.insert(tree.root, Integer.parseInt(args[1]));
+      print2DUtil(tree.root, 0, array.length + 1);
+    } catch (IOException e) {
+      e.printStackTrace();
     }
-    System.out.println("Current tree: ");
-    print2DUtil(tree.root, 0, array.length);
-		System.out.println("After insert 3: ");
-		tree.root = tree.insert(tree.root, 36);
-    print2DUtil(tree.root, 0, array.length + 1);
 	}
 }
-// This code has been contributed by Mayank Jaiswal
