@@ -108,8 +108,7 @@ class BuildTree {
     int[] array = {14, 23, 5, 67, 1, 54, 57, 43, 121, 8, 12};
     Node root = null;
     for (int i = 0; i < array.length; i++) {
-      Node newNode = new Node(array[i]);
-      root = TreeInsert(root, newNode);
+      root = addNode(root, array[i]);
     }
 
     System.out.println("In-order-walk: ");
