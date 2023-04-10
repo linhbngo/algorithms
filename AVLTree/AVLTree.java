@@ -58,50 +58,36 @@ class AVLTree {
 		return height(N.left) - height(N.right);
 	}
 
-	Node insert(Node node, int key) {
-		/* 1. Perform the normal BST insertion */
-		if (node == null)
-			return (new Node(key));
-
-		if (key < node.key)
-			node.left = insert(node.left, key);
-		else if (key > node.key)
-			node.right = insert(node.right, key);
-		else // Duplicate keys not allowed
-			return node;
-
-		/* 2. Update height of this ancestor node */
-		node.height = 1 + max(height(node.left), height(node.right));
-
-		/* 3. Get the balance factor of this ancestor
-			node to check whether this node became
-			unbalanced */
-		int balance = getBalance(node);
-
-		// If this node becomes unbalanced, then there
-		// are 4 cases Left Left Case
-		if (balance > 1 && key < node.left.key)
-			return rightRotate(node);
-
-    // Left Right Case
-    if (balance > 1 && key > node.left.key) {
+  Node insert(Node node, int key) {
+    /* 1. Perform normal BST insertion) */
+    if (node == null)
+      return (new Node(key));
+    if (key < node.key)
+      node.left = insert(node.left, key);
+    else if (key > node.key)
+      node.right = insert(node.right, key);
+    else // Duplicate keys not allowed
+      return node;
+    /* 2. Update height of this ancestor node */
+    node.height = 1 + max(height(node.left), height(node.right));
+    /* 3. Get the balance factor of this ancestor node to check whether 
+    this node became unbalanced. If this node becomes unbalanced, then 
+    there are 4 cases */
+    int balance = getBalance(node); 
+    if (balance > 1 && key < node.left.key) /* LL */
+      return rightRotate(node);
+    if (balance > 1 && key > node.left.key) { /* LR */
       node.left = leftRotate(node.left);
       return rightRotate(node);
     }
-
-		// Right Right Case
-		if (balance < -1 && key > node.right.key)
-			return leftRotate(node);
-
-		// Right Left Case
-		if (balance < -1 && key < node.right.key) {
-			node.right = rightRotate(node.right);
-			return leftRotate(node);
-		}
-
-		/* return the (unchanged) node pointer */
-		return node;
-	}
+    if (balance < -1 && key > node.right.key) /* RR */
+      return leftRotate(node);
+    if (balance < -1 && key < node.right.key) { /* RL */
+      node.right = rightRotate(node.right);
+      return leftRotate(node);
+    }
+    return node; /* return the (unchanged) node pointer */
+  }
 
   static void print2DUtil(Node root, int space, int COUNT) {
     // Base case
