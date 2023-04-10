@@ -1,10 +1,9 @@
 class Node {
-  int val;
-  Node left;
-  Node right;
+  int key;
+  Node left, right;
 
   Node (int x) {
-    val = x;
+    key = x;
     left = null;
     right = null;
   }
