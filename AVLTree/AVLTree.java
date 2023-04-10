@@ -4,13 +4,12 @@ import java.io.File;
 import java.io.IOException;
 
 class Node {
-	int key, height;
-	Node left;
-  Node right;
-	Node(int x) {
-		key = x;
-		height = 1;
-	}
+  int key, height;
+  Node left, right;
+  Node(int x) {
+    key = x;
+    height = 1;
+  }
 }
 
 class AVLTree {
