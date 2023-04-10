@@ -7,13 +7,13 @@ class BuildTree {
     Node x = root;
     while (x != null) {
       y = x;
-      if (newNode.val < x.val) {
+      if (newNode.key < x.key) {
         x = x.left;
       } else x = x.right;
     }
     if (y == null) {
       root = newNode;
-    } else if (newNode.val < y.val) {
+    } else if (newNode.key < y.key) {
       y.left = newNode;
     } else y.right = newNode;
     return root;
